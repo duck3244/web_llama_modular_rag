@@ -81,7 +81,7 @@ docker run -p 8501:8501 rag-streamlit-app
 이 애플리케이션은 모듈화된 구조로 설계되어 있어 유지보수와 확장이 용이합니다:
 
 ```
-streamlit-rag-app/
+web_llama_modular_rag/
 │
 ├── app.py                     # 메인 애플리케이션 진입점
 ├── config.py                  # 시스템 설정
