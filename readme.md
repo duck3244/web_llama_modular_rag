@@ -2,6 +2,8 @@
 
 PDF 문서에서 정보를 검색하고 질문에 답변하는 한국어 기반 RAG(Retrieval-Augmented Generation) 시스템입니다. Streamlit을 사용하여 사용자 친화적인 웹 인터페이스를 제공합니다.
 
+![demo](demo.png)
+
 ## 주요 기능
 
 - 🔍 **PDF 문서 분석**: PDF 문서를 업로드하고 자동으로 벡터 데이터베이스 생성
