@@ -21,27 +21,16 @@ PDF 문서에서 정보를 검색하고 질문에 답변하는 한국어 기반 
 
 ## 설치 방법
 
-### 1. 저장소 복제
-
-```bash
-git clone <repository-url>
-cd <repository-directory>
-```
-
-### 2. 실행 스크립트 사용
+### 1. 실행 스크립트 사용
 
 #### Linux/Mac 사용자:
 ```bash
-chmod +x run.sh
+chmod +x run-script.sh
 ./run.sh
 ```
 
-#### Windows 사용자:
-```
-run.bat
-```
 
-### 3. 수동 설치 (선택 사항)
+### 2. 수동 설치 (선택 사항)
 
 ```bash
 # 가상 환경 생성 (선택 사항)
