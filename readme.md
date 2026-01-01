@@ -26,7 +26,7 @@ PDF 문서에서 정보를 검색하고 질문에 답변하는 한국어 기반 
 #### Linux/Mac 사용자:
 ```bash
 chmod +x run-script.sh
-./run.sh
+./run-script.sh
 ```
 
 
