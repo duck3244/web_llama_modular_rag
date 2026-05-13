@@ -1,5 +1,5 @@
-from langchain.prompts import PromptTemplate
-from langchain.schema.output_parser import StrOutputParser
+from langchain_core.prompts import PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
 
 from state import RAGState
 from llm_setup import setup_llama_model

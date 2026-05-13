@@ -12,9 +12,9 @@ torch.set_num_threads(8)                  # PyTorch 스레드 수 설정
 # 병렬 처리 설정
 os.environ["TOKENIZERS_PARALLELISM"] = "true"  # 토크나이저 병렬 처리 활성화
 
-# 모델 설정
-LLAMA_MODEL_PATH = "models/torchtorchkimtorch-Llama-3.2-Korean-GGACHI-1B-Instruct-v1"
-EMBEDDING_MODEL_NAME = "models/ko-sroberta-multitask"
+# 모델 설정 (HuggingFace Hub ID — 기본 캐시 ~/.cache/huggingface/hub 사용)
+LLAMA_MODEL_PATH = "torchtorchkimtorch/Llama-3.2-Korean-GGACHI-1B-Instruct-v1"
+EMBEDDING_MODEL_NAME = "jhgan/ko-sroberta-multitask"
 
 DEVICE = "cpu"
 CONTEXT_WINDOW = 1024  # 컨텍스트 창 크기 감소

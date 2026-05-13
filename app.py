@@ -1,6 +1,4 @@
 import os
-import gc
-import time
 import streamlit as st
 
 from st_components.session import init_session_state
@@ -62,7 +60,7 @@ with st.sidebar:
     st.markdown('<p class="sub-header">🔄 RAG 파이프라인</p>', unsafe_allow_html=True)
     graph_image = visualize_graph()
     if graph_image:
-        st.image(graph_image, caption="RAG 워크플로우", use_column_width=True)
+        st.image(graph_image, caption="RAG 워크플로우", use_container_width=True)
 
 
 # 메인 화면

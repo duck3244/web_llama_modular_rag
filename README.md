@@ -15,9 +15,9 @@ PDF 문서에서 정보를 검색하고 질문에 답변하는 한국어 기반 
 
 ## 시스템 요구사항
 
-- Python 3.8 이상
+- Python 3.10 권장 (3.8 이상 동작)
 - 최소 4GB RAM (8GB 이상 권장)
-- 인터넷 연결 (모델 다운로드에 필요)
+- 인터넷 연결 (최초 모델 다운로드에 필요)
 
 ## 설치 방법
 
@@ -29,11 +29,15 @@ chmod +x run-script.sh
 ./run-script.sh
 ```
 
+#### Windows 사용자:
+```bat
+run-script-windows.bat
+```
 
-### 2. 수동 설치 (선택 사항)
+### 2. 수동 설치
 
 ```bash
-# 가상 환경 생성 (선택 사항)
+# 가상 환경 생성
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 # 또는
@@ -43,21 +47,17 @@ venv\Scripts\activate  # Windows
 pip install -r requirements.txt
 
 # 디렉토리 생성
-mkdir -p cache vector_db temp models visualizations
+mkdir -p cache vector_db temp
+
+# (선택) 모델 사전 다운로드 — 생략 시 앱 첫 실행 때 자동 다운로드됨
+python snapshot_ko_sroberta_multitask.py
+python snapshot_llama-3.2-korean-ggachi-1b-instruct-v1.py
 
 # 애플리케이션 실행
 streamlit run app.py
 ```
 
-## 도커를 사용한 설치 (선택 사항)
-
-```bash
-# 도커 이미지 빌드
-docker build -t rag-streamlit-app .
-
-# 컨테이너 실행
-docker run -p 8501:8501 rag-streamlit-app
-```
+> 모델은 HuggingFace 기본 캐시(`~/.cache/huggingface/hub`)에 저장됩니다. 캐시 위치를 바꾸려면 `HF_HOME` 환경변수로 지정하세요.
 
 ## 사용 방법
 
@@ -78,12 +78,10 @@ web_llama_modular_rag/
 ├── config.py                  # 시스템 설정
 ├── caching.py                 # 결과 캐싱 관련
 ├── data_loader.py             # PDF 로딩 및 벡터화
-├── decision.py                # 의사결정 로직
 ├── embeddings.py              # 임베딩 모델 관련
 ├── generation.py              # 텍스트 생성 관련
 ├── graph_builder.py           # RAG 그래프 구축
 ├── llm_setup.py               # LLM 설정
-├── query_processing.py        # 쿼리 처리
 ├── retrieval.py               # 문서 검색
 ├── state.py                   # 상태 관리
 │
@@ -95,14 +93,17 @@ web_llama_modular_rag/
 │
 ├── rag_engine/                # RAG 처리 엔진 관련
 │   └── processor.py           # RAG 처리 핵심 로직
+│
+├── snapshot_ko_sroberta_multitask.py              # 임베딩 모델 사전 다운로드
+└── snapshot_llama-3.2-korean-ggachi-1b-instruct-v1.py  # LLM 사전 다운로드
 ```
 
 ## 사용 모델
 
-이 시스템은 다음 모델을 사용합니다:
+이 시스템은 다음 모델을 사용합니다 (HuggingFace Hub):
 
-- **LLM**: `torchtorchkimtorch-Llama-3.2-Korean-GGACHI-1B-Instruct-v1` (한국어 Llama 모델)
-- **임베딩 모델**: `ko-sroberta-multitask` (한국어 임베딩 모델)
+- **LLM**: `torchtorchkimtorch/Llama-3.2-Korean-GGACHI-1B-Instruct-v1` (한국어 Llama 모델)
+- **임베딩 모델**: `jhgan/ko-sroberta-multitask` (한국어 임베딩 모델)
 
 ## 성능 최적화
 

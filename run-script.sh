@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 필요한 디렉토리 생성
-mkdir -p cache vector_db temp models visualizations
+mkdir -p cache vector_db temp
 
 # 가상 환경 생성 (선택 사항)
 if [ ! -d "venv" ]; then

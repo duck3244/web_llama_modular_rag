@@ -5,8 +5,6 @@ SETLOCAL
 mkdir cache 2>nul
 mkdir vector_db 2>nul
 mkdir temp 2>nul
-mkdir models 2>nul
-mkdir visualizations 2>nul
 
 :: 가상 환경 생성 (선택 사항)
 IF NOT EXIST venv (
